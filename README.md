@@ -1,31 +1,22 @@
 # TemplateMaven
 Mavenのテンプレート。
 
-## 使用方法
+## 起動引数
 
-### プロジェクト作成
+1. 入力.xmlパス
+2. 出力.tsvパス
+3. listファイルパス
 
-1. .envを修正する。
-   - PACAGE_NAME、PROJECT_NAMEを修正する。
-2. Dockerfileを必要に応じて修正する。
-   - 取得イメージの修正
-3. init.shを実行する。
-
-### clean compile exec:java
-
+実行例
 ```
-docker-compose -f docker-compose_clean_compile_exec.yml up
+mvn clean compile exec:java -Dexec.mainClass="sample.read.xml.App" -Dexec.args="'./src/main/resources/input.xml' './src/main/resources/output.tsv' './src/main/resources/attribute.lst' "
 ```
 
-### コンテナ内にコマンドを流す
+### 備考
 
-```mvn_command.sh```を修正してから下記実行。
-
-```
-docker-compose up
-```
+Maven on Dockerしようとしたが、うまく動かないので、XMLReader配下で実行すること。
 
 ## 参考
 
-- [Docker hub:maven](https://hub.docker.com/_/maven)
-- [docker docs:Compose における環境変数](https://matsuand.github.io/docs.docker.jp.onthefly/compose/environment-variables/)
+- [Java入門:Java による XML の読込み](https://java.keicode.com/lib/xml-basic.php)
+

@@ -1,0 +1,4 @@
+<xml>
+  <input type="hidden" name="hoge" :value="1"/>
+  <input type="hidden" name="piyo" :value="2"/>
+</xml>
